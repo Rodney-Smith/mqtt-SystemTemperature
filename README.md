@@ -20,7 +20,7 @@ Raspberry Pi Temperature Reporting
 sudo mkdir /opt/scripts
 sudo chown pi:root /opt/scripts
 cd /opt/scripts
-git clone https://github.com/Rodney-Smith/mqtt-systemp.git
+git clone https://github.com/Rodney-Smith/mqtt-SystemTemperature.git
 ```
 
 ### Install dependencies
