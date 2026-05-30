@@ -1,4 +1,4 @@
-# [Raspberry Pi Temperature Project](https://github.com/Rodney-Smith/linux-temp-mqtt)
+# [Raspberry Pi Temperature Project](https://github.com/Rodney-Smith/mqtt-SystemTemperature)
 
 Raspberry Pi Temperature Reporting
 
@@ -31,7 +31,7 @@ sudo pip3 install -r requirements.txt
 
 ### Modify the config.json file
 ```
-cd /opt/scripts/linux-temp-mqtt
+cd /opt/scripts/mqtt-SystemTemperature
 mv config.example.json config.json
 nano config.json
 {
@@ -50,7 +50,7 @@ nano config.json
 
 Create or copy the startup service for the python script:
 ```
-sudo cp /opt/scripts/linux-temp-mqtt/SystemTemperature.service /etc/systemd/system/SystemTemperature.service
+sudo cp /opt/scripts/mqtt-SystemTemperature/SystemTemperature.service /etc/systemd/system/SystemTemperature.service
 ```
 
 Next you will need to reload, enable and start the new service:
