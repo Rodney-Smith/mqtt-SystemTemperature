@@ -17,21 +17,18 @@ Raspberry Pi Temperature Reporting
 
 ### Download the project on the Raspberry Pi
 ```
-sudo mkdir /opt/scripts
-sudo chown pi:root /opt/scripts
-cd /opt/scripts
+cd /opt
 git clone https://github.com/Rodney-Smith/mqtt-SystemTemperature.git
 ```
 
 ### Install dependencies
 ```
 sudo apt-get update && sudo apt-get install -y build-essential git python3 python3-pip python3-dev python3-libgpiod python3-pil python3-setuptools python3-paho-mqtt
-sudo pip3 install -r requirements.txt
 ```
 
 ### Modify the config.json file
 ```
-cd /opt/scripts/mqtt-SystemTemperature
+cd /opt/mqtt-SystemTemperature
 mv config.example.json config.json
 nano config.json
 {
@@ -50,7 +47,7 @@ nano config.json
 
 Create or copy the startup service for the python script:
 ```
-sudo cp /opt/scripts/mqtt-SystemTemperature/SystemTemperature.service /etc/systemd/system/SystemTemperature.service
+sudo cp /opt/mqtt-SystemTemperature/SystemTemperature.service /etc/systemd/system/SystemTemperature.service
 ```
 
 Next you will need to reload, enable and start the new service:
