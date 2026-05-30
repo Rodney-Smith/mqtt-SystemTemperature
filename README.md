@@ -25,7 +25,7 @@ git clone https://github.com/Rodney-Smith/mqtt-SystemTemperature.git
 
 ### Install dependencies
 ```
-sudo apt-get update && sudo apt-get install -y build-essential git python3 python3-pip python3-dev python3-libgpiod python3-pil python3-setuptools
+sudo apt-get update && sudo apt-get install -y build-essential git python3 python3-pip python3-dev python3-libgpiod python3-pil python3-setuptools python3-paho-mqtt
 sudo pip3 install -r requirements.txt
 ```
 
