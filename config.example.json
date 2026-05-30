@@ -1,5 +1,5 @@
 {
-    "mqtt_": {
+    "mqtt": {
         "clientid": "unique-id",
         "topic": "linux/hostname/temperature",
         "broker": "mqttbroker.local",
