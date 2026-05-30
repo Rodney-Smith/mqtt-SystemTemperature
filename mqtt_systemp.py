@@ -21,27 +21,27 @@ def getConfig():
         exit(1)
 
     # must have an mqtt topic
-    if c['mqtt_']['topic'] is None:
+    if c['mqtt']['topic'] is None:
         print("Please supply an MQTT TOPIC value.")
         exit(1)
 
     # must have an mqtt broker
-    if c['mqtt_']['broker'] is None:
+    if c['mqtt']['broker'] is None:
         print("Please supply an MQTT BROKER value.")
         exit(1)
 
     # set the mqtt port
-    if c['mqtt_']['port'] is None:
+    if c['mqtt']['port'] is None:
         print("Please supply an MQTT PORT set to default value.")
-        c['mqtt_']['port']=1883
+        c['mqtt']['port']=1883
 
     # must have the mqtt user
-    if c['mqtt_']['user'] is None:
+    if c['mqtt']['user'] is None:
         print("Please supply an MQTT USER value.")
         exit(1)
 
     # must have the mqtt password
-    if c['mqtt_']['password'] is None:
+    if c['mqtt']['password'] is None:
         print("Please supply an MQTT PASSWORD value.")
         exit(1)
 
@@ -56,7 +56,12 @@ def get_temp():
         str: Temperature value.
     """
     temp = check_output(["vcgencmd","measure_temp"]).decode("UTF-8")
-    return(findall("\d+\.\d+",temp)[0])
+    matches = findall(r"\d+\.\d+", temp)
+    if matches:
+        return matches[0]
+    else:
+        print("Could not parse temperature from vcgencmd output:", temp)
+        return None
 
 
 def mqtt(payload):
@@ -78,12 +83,12 @@ def mqtt(payload):
 
 config = getConfig()
 # get the config
-mqtt_clientid = config['mqtt_']['clientid']
-mqtt_topic = config['mqtt_']['topic']
-mqtt_broker = config['mqtt_']['broker']
-mqtt_port = config['mqtt_']['port']
-mqtt_user = config['mqtt_']['user']
-mqtt_password = config['mqtt_']['password']
+mqtt_clientid = config['mqtt']['clientid']
+mqtt_topic = config['mqtt']['topic']
+mqtt_broker = config['mqtt']['broker']
+mqtt_port = config['mqtt']['port']
+mqtt_user = config['mqtt']['user']
+mqtt_password = config['mqtt']['password']
 
 while(True):
     #
@@ -105,7 +110,7 @@ while(True):
 
 
 __author__ = "Rodney Smith"
-__copyright__ = "Copyright 2021, Temperature Reporting Project"
+__copyright__ = "Copyright 2026, Temperature Reporting Project"
 __license__ = "MIT"
 __version__ = "1.0.2"
 __contact__ = "rodney.delauer@gmail.com"
