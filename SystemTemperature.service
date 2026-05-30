@@ -4,8 +4,8 @@ After = network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/env python3 /opt/scripts/linux-temp-mqtt/mqtt_systemp.py
-WorkingDirectory=/opt/scripts/linux-temp-mqtt
+ExecStart=/usr/bin/env python3 /opt/scripts/mqtt-SystemTemperature/mqtt_systemp.py
+WorkingDirectory=/opt/scripts/mqtt-SystemTemperature
 TimeoutStartSec=120
 TimeoutStopSec=30
 Restart=always
