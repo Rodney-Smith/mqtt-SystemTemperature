@@ -59,4 +59,4 @@ sudo systemctl start SystemTemperature.service
 Ensure there are no errors.
 `systemctl status SystemTemperature.service`
 or
-`sudo journalctl -u ReportTemp.service -f`
+`sudo journalctl -u SystemTemperature.service -f`
